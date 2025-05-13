@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from abc import ABC, abstractmethod
+from collections.abc import Callable
 from itertools import product
 from sys import argv, stderr
-from typing import Any, Final, Optional
+from typing import Any, Final, Optional, TypeAlias
 
 variable_banned_characters: Final[frozenset[str]] = frozenset("&*;=")
 
@@ -37,17 +37,10 @@ class Pointer:
         return self._deref_time
 
 
-class Expression(ABC):
-    """An expression that resolves a pointer."""
-
-    __slots__ = ()
-
-    @abstractmethod
-    def __call__(self) -> Pointer:
-        pass
+Expression: TypeAlias = Callable[[], Pointer]
 
 
-class VariableName(Expression):
+class VariableName:
     __slots__ = ("_name",)
 
     _name: str
@@ -78,7 +71,7 @@ class VariableName(Expression):
         return self.name
 
 
-class Dereference(Expression):
+class Dereference:
     __slots__ = ("_subexp",)
 
     _subexp: Expression
@@ -109,7 +102,7 @@ class Dereference(Expression):
         return f"*{self.sub_expression}"
 
 
-class Reference(Expression):
+class Reference:
     __slots__ = ("_subexp",)
 
     _subexp: Expression
@@ -139,17 +132,10 @@ class Reference(Expression):
         return f"&{self.sub_expression}"
 
 
-class Statement(ABC):
-    """A statement within a *lang program."""
-
-    __slots__ = ()
-
-    @abstractmethod
-    def __call__(self) -> None:
-        pass
+Statement: TypeAlias = Callable[[], None]
 
 
-class Blank(Statement):
+class Blank:
     __slots__ = ()
 
     def __call__(self) -> None:
@@ -168,7 +154,7 @@ class Blank(Statement):
         return ";"
 
 
-class New(Statement):
+class New:
     __slots__ = "_name"
 
     _name: str
@@ -198,7 +184,7 @@ class New(Statement):
         return f"new *{self.name};"
 
 
-class Assign(Statement):
+class Assign:
     __slots__ = ("_derefs", "_exp", "_name")
 
     _derefs: int
@@ -255,7 +241,7 @@ class Assign(Statement):
         return f"{'*' * self.dereference_count}{self.name} = {self.expression};"
 
 
-class Back(Statement):
+class Back:
     __slots__ = ("_exp",)
 
     _exp: Expression
@@ -283,7 +269,7 @@ class Back(Statement):
         return f"back {self.expression};"
 
 
-class Out(Statement):
+class Out:
     __slots__ = ("_exp",)
 
     _exp: Expression
