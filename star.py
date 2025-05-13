@@ -368,10 +368,6 @@ except (NameError, SyntaxError) as e:
 else:
     current_line: int = 0
     variables: dict[str, Pointer] = {}
-    assert not any(
-        char in name
-        for name, char in product(variables.keys(), variable_banned_characters)
-    )
     while current_line < len(program):
         try:
             program[current_line]()
