@@ -372,6 +372,9 @@ else:
         try:
             program[current_line]()
         except KeyError as e:
-            print(f"Undefined variable {e} referenced on line {current_line + 1}")
+            print(
+                f"Undefined variable {e} referenced on line {current_line + 1}",
+                file=stderr,
+            )
             quit(1)
         current_line += 1
