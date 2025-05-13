@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from collections.abc import Callable
-from itertools import product
+from collections.abc import Callable, Set
 from sys import argv, stderr
 from typing import Any, Final, Optional, TypeAlias
 
-variable_banned_characters: Final[frozenset[str]] = frozenset("&*;=")
+variable_banned_characters: Final[Set[str]] = frozenset("&*;=")
 
 
 class Pointer:
@@ -46,7 +45,7 @@ class VariableName:
     _name: str
 
     def __init__(self, name: str) -> None:
-        if any(char in name for char in variable_banned_characters):
+        if not variable_banned_characters.isdisjoint(name):
             raise ValueError("Illegal variable name")
         self._name = name
 
