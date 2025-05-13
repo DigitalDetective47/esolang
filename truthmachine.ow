@@ -1,0 +1,12 @@
+input
+push "0
+equal
+if
+  push "0
+  print
+else
+  push true
+  while
+    push "1
+    print
+    push true

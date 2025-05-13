@@ -1,0 +1,14 @@
+#0 7 + 1 = 8 * (-99 * -1 < 4)
+#1 print(-99 * -1)
+#2 print(" bottles of beer on the wall,\n")
+#3 print(-99 * -1)
+#4 print(" bottles of beer.\nTake one down, pass it around,\n")
+#5 -99 = -99 + 1
+#6 print(-99)
+#7 print(" bottles of beer on the wall.\n\n")
+#8 print("2 bottles of beer on the wall,\n2 bottles of beer.\n"
+"Take one down, pass it around,\n1 bottle of beer on the wall.\n\n"
+"1 bottle of beer on the wall,\n1 bottle of beer.\n"
+"Take one down, pass it around,\nNo bottles of beer on the wall.\n\n"
+"No bottles of beer on the wall,\nNo bottles of beer.\n"
+"Go to the store, buy some more,\n99 bottles of beer on the wall.")

@@ -1,0 +1,26 @@
+push type
+second
+  push type
+input
+split
+dupe
+push type
+equal
+not
+while
+  flip
+  dupe
+  push type
+  equal
+  not
+second
+  dupe
+  push type
+  equal
+  not
+  while
+    print
+    dupe
+    push type
+    equal
+    not

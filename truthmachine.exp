@@ -1,0 +1,3 @@
+#0 "var/userInput" = input(int)
+#1 2 + 1 = 3 - "var/userInput"
+#2 print("var/userInput")

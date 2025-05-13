@@ -1,0 +1,5 @@
+stepLeft:*.<.*.>|stepLeft&*.<
+glideLeft:glideRight&stepLeft
+stepRight:*.>.*.<|stepRight&*.>
+glideRight:glideLeft&stepRight
+main:*.(glideRight.<.*.*.>.*|*).*

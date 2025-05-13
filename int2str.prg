@@ -1,0 +1,27 @@
+DEF ARR CHR ITC INT VAL END
+    VAR ARR CHR OUT
+    VAR INT REM
+    VAR BOL NEG
+    VAR DEC CHZ
+    SET CHZ SUB POW ADD SIX ONE TWO ONE
+    IFT VAL
+        IFT AND VAL POW TWO SUB POW TWO SIX ONE
+            SET NEG TRU
+            SET REM MUL VAL SUB ONE TWO
+        ELS
+            SET NEG FLS
+            SET REM VAL
+        END
+        WHL REM
+            SET OUT INS OUT ADD MOD REM TEN CHZ FAL
+            SET REM DIV REM TEN
+        END
+        IFT NEG
+            RET INS OUT SUB SUB POW ADD SIX ONE TWO TWO TWO FAL
+        ELS
+            RET OUT
+        END
+    ELS
+        RET ARR CHZ END
+    END
+END

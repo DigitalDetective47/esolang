@@ -1,0 +1,52 @@
+push 1
+input
+dupe
+flip
+second
+  split
+len
+subtract
+dupe
+push 0
+equal
+not
+while
+  dupe
+  second
+    eval
+  dupe
+  push 0
+  equal
+  not
+  while
+    push -1
+    add
+    second
+      push 2
+      multiply
+    dupe
+    push 0
+    equal
+    not
+  drop
+  push -1
+  add
+  second
+    dupe
+    push 0
+    equal
+    not
+    while
+      push "*
+      print
+      push -1
+      add
+      dupe
+      push 0
+      equal
+      not
+    drop
+  dupe
+  push 0
+  equal
+  not

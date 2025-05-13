@@ -1,0 +1,91 @@
+second
+  push 0
+push true
+push type
+push true
+while
+  push ">> 
+  print
+  input
+  split
+  dupe
+  push type
+  equal
+  not
+  while
+    dupe
+    push "h
+    equal
+    if
+      drop
+      push true
+      while
+        push type
+        equal
+        not
+      push false
+    else
+      dupe
+      push "d
+      equal
+      if
+        second
+          dupe
+          push 0
+          equal
+          not
+          if
+            dupe
+            push 257
+            equal
+            if
+              drop
+              push 0
+            else
+              push -1
+              add
+      else
+        dupe
+        push "i
+        equal
+        if
+          second
+            dupe
+            push 255
+            equal
+            if
+              drop
+              push 0
+            else
+              push 1
+              add
+        else
+          dupe
+          push "o
+          equal
+          if
+            second
+              dupe
+              repr
+              print
+              push "\n
+              print
+          else
+            second
+              dupe
+              push 16
+              equal
+              if
+                drop
+                push 0
+              else
+                dupe
+                multiply
+      drop
+      dupe
+      push type
+      equal
+      not
+  dupe
+  push type
+  equal
