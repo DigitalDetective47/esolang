@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections.abc import Callable, Set
+from collections.abc import Callable, MutableMapping, MutableSequence, Sequence, Set
 from sys import argv, stderr
 from typing import Any, Final, Optional, TypeAlias
 
@@ -317,7 +317,7 @@ elif len(argv) > 2:
     print("Unknown command-line arguments passed.", file=stderr)
     quit(1)
 
-program: list[Statement] = []
+program: MutableSequence[Statement] = []
 try:
     with open(argv[1]) as source:
         for ln, line in enumerate(source, 1):
@@ -325,7 +325,7 @@ try:
             if not line:
                 program.append(Blank())
                 continue
-            fragments: list[str] = line.split(";", 1)
+            fragments: Sequence[str] = line.split(";", 1)
             if len(fragments) < 2:
                 raise SyntaxError(f"Missing semicolon on line {ln}")
             line = fragments[0]
@@ -366,7 +366,7 @@ except (NameError, SyntaxError) as e:
     quit(1)
 else:
     current_line: int = 0
-    variables: dict[str, Pointer] = {}
+    variables: MutableMapping[str, Pointer] = {}
     while current_line < len(program):
         try:
             program[current_line]()
